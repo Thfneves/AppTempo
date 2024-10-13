@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tela Cadastro-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="TelaCadastro" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="TelaCadastro" customModule="AppTempo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc" customClass="Tela">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vua-pB-30S">
+                                <rect key="frame" x="15" y="196" width="363" height="458"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Qual o seu nome" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vf5-2S-Llm">
+                                        <rect key="frame" x="50" y="72" width="263" height="34"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" systemColor="opaqueSeparatorColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirme seu Telefone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NBg-EZ-uNn">
+                                        <rect key="frame" x="50" y="324" width="263" height="34"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite seu E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3po-5K-Q2W">
+                                        <rect key="frame" x="50" y="261" width="263" height="34"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite uma senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nhp-k7-nns">
+                                        <rect key="frame" x="50" y="135" width="263" height="34"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repita a senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PYz-WR-2uL">
+                                        <rect key="frame" x="50" y="198" width="263" height="34"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="de5-tc-zsU">
+                                        <rect key="frame" x="115" y="397" width="133" height="35"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Cadastrar"/>
+                                        <connections>
+                                            <action selector="ButtonCadastrar:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Mhd-U5-j9J"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="3po-5K-Q2W" firstAttribute="top" secondItem="PYz-WR-2uL" secondAttribute="bottom" constant="29" id="133-GA-25L"/>
+                                    <constraint firstAttribute="bottom" secondItem="de5-tc-zsU" secondAttribute="bottom" constant="26" id="CJC-y0-Cg1"/>
+                                    <constraint firstItem="nhp-k7-nns" firstAttribute="leading" secondItem="Vua-pB-30S" secondAttribute="leading" constant="50" id="Ctm-zS-9Wo"/>
+                                    <constraint firstItem="3po-5K-Q2W" firstAttribute="leading" secondItem="Vua-pB-30S" secondAttribute="leading" constant="50" id="Dou-UA-cNn"/>
+                                    <constraint firstItem="de5-tc-zsU" firstAttribute="leading" secondItem="Vua-pB-30S" secondAttribute="leading" constant="115" id="EAa-uL-FI6"/>
+                                    <constraint firstItem="Vf5-2S-Llm" firstAttribute="leading" secondItem="Vua-pB-30S" secondAttribute="leading" constant="50" id="J7S-Wu-wTB"/>
+                                    <constraint firstItem="PYz-WR-2uL" firstAttribute="leading" secondItem="Vua-pB-30S" secondAttribute="leading" constant="50" id="SFx-oY-VW5"/>
+                                    <constraint firstAttribute="trailing" secondItem="de5-tc-zsU" secondAttribute="trailing" constant="115" id="TT8-2I-xdV"/>
+                                    <constraint firstAttribute="trailing" secondItem="NBg-EZ-uNn" secondAttribute="trailing" constant="50" id="Xjv-i2-YLM"/>
+                                    <constraint firstItem="NBg-EZ-uNn" firstAttribute="top" secondItem="3po-5K-Q2W" secondAttribute="bottom" constant="29" id="Zsd-Li-TdM"/>
+                                    <constraint firstAttribute="trailing" secondItem="nhp-k7-nns" secondAttribute="trailing" constant="50" id="cI1-oO-ZIO"/>
+                                    <constraint firstAttribute="trailing" secondItem="3po-5K-Q2W" secondAttribute="trailing" constant="50" id="cot-Dc-PxE"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vf5-2S-Llm" secondAttribute="trailing" constant="50" id="dmJ-Gs-NoA"/>
+                                    <constraint firstAttribute="trailing" secondItem="PYz-WR-2uL" secondAttribute="trailing" constant="50" id="fQv-Kz-ZnD"/>
+                                    <constraint firstItem="PYz-WR-2uL" firstAttribute="top" secondItem="nhp-k7-nns" secondAttribute="bottom" constant="29" id="gyW-Wq-oz8"/>
+                                    <constraint firstItem="de5-tc-zsU" firstAttribute="top" secondItem="NBg-EZ-uNn" secondAttribute="bottom" constant="39" id="jKi-sz-JtY"/>
+                                    <constraint firstItem="NBg-EZ-uNn" firstAttribute="leading" secondItem="Vua-pB-30S" secondAttribute="leading" constant="50" id="plh-su-75F"/>
+                                    <constraint firstItem="nhp-k7-nns" firstAttribute="top" secondItem="Vf5-2S-Llm" secondAttribute="bottom" constant="29" id="sko-Bg-z2o"/>
+                                    <constraint firstItem="Vf5-2S-Llm" firstAttribute="top" secondItem="Vua-pB-30S" secondAttribute="top" constant="72" id="zqp-3m-eSr"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crie sua conta abaixo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2k-69-6Gr">
+                                <rect key="frame" x="75" y="119" width="243" height="28"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Vua-pB-30S" secondAttribute="bottom" constant="164" id="6E1-Jk-xZj"/>
+                            <constraint firstItem="Vua-pB-30S" firstAttribute="top" secondItem="a2k-69-6Gr" secondAttribute="bottom" constant="49" id="R7F-dY-Hxf"/>
+                            <constraint firstItem="Vua-pB-30S" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="Ukq-0A-758"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Vua-pB-30S" secondAttribute="trailing" constant="15" id="YC8-fF-OsH"/>
+                            <constraint firstItem="a2k-69-6Gr" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="60" id="itJ-2W-eEX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="a2k-69-6Gr" secondAttribute="trailing" constant="75" id="mVx-9i-Faf"/>
+                            <constraint firstItem="a2k-69-6Gr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="75" id="xCO-Vt-0pt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="TextFieldConfirmacaoSenha" destination="PYz-WR-2uL" id="4aW-iC-m0f"/>
+                        <outlet property="TextFieldEmail" destination="3po-5K-Q2W" id="VTC-af-V1a"/>
+                        <outlet property="TextFieldNome" destination="Vf5-2S-Llm" id="b2L-hS-hvb"/>
+                        <outlet property="TextFieldSenha" destination="nhp-k7-nns" id="K1F-Lh-RaP"/>
+                        <outlet property="TextFieldTelefone" destination="NBg-EZ-uNn" id="KjD-uE-bNH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="125.95419847328243" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
