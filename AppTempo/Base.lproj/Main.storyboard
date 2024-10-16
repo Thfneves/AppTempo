@@ -20,28 +20,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="381" height="812"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0b-Dd-H9F">
-                                <rect key="frame" x="139" y="488" width="99" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Cadastrar">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="ButtonCadastro:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rsF-Mc-JbY"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSG-i6-6MN">
-                                <rect key="frame" x="15" y="606" width="345" height="18"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Cadastre-se  para receber notificacoes sobre o tempo">
-                                        <attributes>
-                                            <font key="NSFont" metaFont="system" size="16"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cz0-yX-SVs">
                                 <rect key="frame" x="156" y="370" width="64" height="35"/>
                                 <state key="normal" title="Button"/>
@@ -49,23 +27,16 @@
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="TelaInicio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vuN-wk-LOi"/>
+                                    <action selector="HomeScreen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0CM-s9-MzG"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="u0b-Dd-H9F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="139" id="8wA-G9-CNj"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WSG-i6-6MN" secondAttribute="bottom" constant="154" id="9Ya-Ka-6kK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WSG-i6-6MN" secondAttribute="trailing" constant="15" id="K4X-Bb-fqW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cz0-yX-SVs" secondAttribute="trailing" constant="155" id="L2t-VT-8ye"/>
-                            <constraint firstItem="WSG-i6-6MN" firstAttribute="top" secondItem="u0b-Dd-H9F" secondAttribute="bottom" constant="83" id="VhS-PR-q7N"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="u0b-Dd-H9F" secondAttribute="trailing" constant="137" id="ZlW-lb-DPh"/>
                             <constraint firstItem="cz0-yX-SVs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="320" id="c2H-0E-7p3"/>
-                            <constraint firstItem="WSG-i6-6MN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="dNz-pN-bC0"/>
                             <constraint firstItem="cz0-yX-SVs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="156" id="lns-o3-whk"/>
-                            <constraint firstItem="u0b-Dd-H9F" firstAttribute="top" secondItem="cz0-yX-SVs" secondAttribute="bottom" constant="83" id="web-MP-NFr"/>
                         </constraints>
                     </view>
                 </viewController>

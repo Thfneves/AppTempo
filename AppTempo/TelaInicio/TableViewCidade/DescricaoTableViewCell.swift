@@ -9,26 +9,44 @@ import UIKit
 
 
 
-enum diasSemana: String{
-    case segunda = "Segunda-feira"
-     case terca = "Terça-feira"
-     case quarta = "Quarta-feira"
-     case quinta = "Quinta-feira"
-     case sexta = "Sexta-feira"
-     case sabado = "Sábado"
-     case domingo = "Domingo"
+enum DayOfTheWeek: String{    
+    case monday = "Monday"
+    case tuesday = "Tuesday"
+    case wednesday = "Wednesday"
+    case thursday = "Thursday"
+    case friday = "Friday"
+    case saturday = "Saturday"
+    case sunday = "Sunday"
     
 }
-struct descricao{
-    var diaSemana: diasSemana
-    var municipio: String
-    var temperaturaTermica: Double
-    var sensacaoTermica: Double
-    var minimaDia:Double
-    var maximaDia:Double
-    var humidade:Double
-    var ceu:  Double
+
+enum Sky: String{
+    case rain = "Rain"
+    case sun = "Sun"
+    case cloudy = "Cloudy"
 }
+
+struct Description{
+    var dayOfTheWeek: DayOfTheWeek
+    var municipality: States
+    var temperatureThermal: Double
+    var thermalSensation: Double
+    var minimaDay:Double
+    var maximaDay:Double
+    var humidity:Double
+    var sky: Sky
+    
+}
+enum States: String{
+    case SaoPaulo = "SaoPaulo"
+    case RioDeJaneiro = "Rio de janeiro"
+    case Minas = "Minas Gerais"
+    case Parana = "Parana"
+    case SantaCatarina = "Santa Catarina"
+    
+    
+}
+
 
 
 
