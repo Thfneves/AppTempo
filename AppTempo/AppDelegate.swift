@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  AppTempo
 //
-//  Created by Thiago Neves on 12/10/24.
+//  Created by Thiago Neves on 19/10/24.
 //
 
 import UIKit

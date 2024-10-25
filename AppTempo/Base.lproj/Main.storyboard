@@ -16,37 +16,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ceu.png" translatesAutoresizingMaskIntoConstraints="NO" id="bNb-9f-VjU">
-                                <rect key="frame" x="0.0" y="0.0" width="381" height="812"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun-rays-cloudy-sky" translatesAutoresizingMaskIntoConstraints="NO" id="rUO-wg-p3W">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cz0-yX-SVs">
-                                <rect key="frame" x="156" y="370" width="64" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjN-ym-v1j">
+                                <rect key="frame" x="150" y="463" width="75" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Inicio">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
+                                <buttonConfiguration key="configuration" style="gray" title="Inicio"/>
                                 <connections>
-                                    <action selector="HomeScreen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0CM-s9-MzG"/>
+                                    <action selector="HomeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w3C-ph-ZKe"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cz0-yX-SVs" secondAttribute="trailing" constant="155" id="L2t-VT-8ye"/>
-                            <constraint firstItem="cz0-yX-SVs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="320" id="c2H-0E-7p3"/>
-                            <constraint firstItem="cz0-yX-SVs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="156" id="lns-o3-whk"/>
+                            <constraint firstAttribute="trailing" secondItem="rUO-wg-p3W" secondAttribute="trailing" id="1Uh-iM-VWx"/>
+                            <constraint firstItem="rUO-wg-p3W" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="JYF-4Q-PPY"/>
+                            <constraint firstAttribute="bottom" secondItem="rUO-wg-p3W" secondAttribute="bottom" id="ROD-hg-9LM"/>
+                            <constraint firstItem="rUO-wg-p3W" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VqV-Nl-IOG"/>
+                            <constraint firstItem="fjN-ym-v1j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="150" id="en7-eJ-yp0"/>
+                            <constraint firstItem="fjN-ym-v1j" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="413" id="hqP-Ra-HoG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fjN-ym-v1j" secondAttribute="bottom" constant="280" id="msu-Jg-EVZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fjN-ym-v1j" secondAttribute="trailing" constant="150" id="wpa-mP-GTF"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="101.59999999999999" y="3.6945812807881775"/>
+            <point key="canvasLocation" x="-79.200000000000003" y="3.6945812807881775"/>
         </scene>
     </scenes>
     <resources>
-        <image name="ceu.png" width="2500" height="3745"/>
+        <image name="sun-rays-cloudy-sky" width="4000" height="6000"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

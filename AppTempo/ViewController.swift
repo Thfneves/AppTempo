@@ -2,26 +2,26 @@
 //  ViewController.swift
 //  AppTempo
 //
-//  Created by Thiago Neves on 12/10/24.
+//  Created by Thiago Neves on 19/10/24.
 //
 
 import UIKit
-import AVKit
+
 class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
     }
     
-    
-    @IBAction func HomeScreen(_ sender: UIButton) {
-        let vc: HomeScreen? = UIStoryboard(name: "HomeScreen", bundle: nil).instantiateViewController(withIdentifier: "HomeScreen") as? HomeScreen
+    @IBAction func HomeButton(_ sender: UIButton) {
+        let vc: HomeScreenViewController? = UIStoryboard(name: "HomeScreenViewController", bundle:
+        nil).instantiateViewController(withIdentifier: "HomeScreenViewController") as? HomeScreenViewController
         vc?.modalPresentationStyle = .fullScreen
-        present( vc ??  UIViewController(), animated: true)
-        
+        present(vc ?? UIViewController(), animated: true)
     }
+    
 }
 
+// teste
 
