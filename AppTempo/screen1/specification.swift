@@ -8,15 +8,19 @@
 import Foundation
 
 struct Specifications{
-    var city : States
-    var currentTemperature: Double
-    var thermalSensation: Double
-    var minimumOfTheDay: Double
-    var maximumOfTheDay: Double
+//    var city : States
+
     var climate: Climate
     var day: DayOfTheWeek
     var humidity:Double
    // var weekDaysInfo: [WeekDaysInfo]
+//Today-> First view on xib
+    var City : States
+    var WeatherToday: Double //Clima hoje
+    var DegreesToday: Double   // Graus hOJE
+    var DayOfWeek: String // dia da semana
+    var MinOfWeek: Double
+    var MaxOfWeek: Double
     
 }
 
@@ -45,10 +49,13 @@ enum DayOfTheWeek: String{
     
 }
 
-// Criar enum para city e tem outro, preciso conferir com o gabriel.
-// Fazer POO usando struct, enum  para o array.
-// 1 mostrar tudo da celula,
-// 2 criar as conexoes e linkar as info
+
+
+
+
+
+// 1 mostrar tudo da celula, feito
+// 2 criar as conexoes e linkar as info feito
 // 3 acrescentar a variavel e criar as structs ( array)
 // 4 linkar as informacoes novas na tela.
 // funcoes assincronas na terca e lidar com var opcionalidades.

@@ -12,15 +12,12 @@ class HomeScreenViewController: UIViewController {
     @IBOutlet weak var CollectionView: UICollectionView!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configCollectionView()
         CollectionView.backgroundColor = UIColor.clear
         // Do any additional setup after loading the view.
     }
-    
-    
     func configCollectionView(){
         CollectionView.delegate = self
         CollectionView.dataSource = self
@@ -30,17 +27,11 @@ class HomeScreenViewController: UIViewController {
         }
         CollectionView.register(CustomCollectionViewCell.nib(), forCellWithReuseIdentifier: CustomCollectionViewCell.identifier)
     }
-
     var itensList: [Specifications] = [
-   //     Specifications ( city: States.SaoPaulo, currentTemperature: 13, thermalSensation: 14, minimumOfTheDay: 44, maximumOfTheDay: 44, climate: Climate.sun,
-   //                      day: DayOfTheWeek.sunday, humidity: 34, weekDaysInfo),
-    Specifications ( city: States.SaoPaulo, currentTemperature: 13, thermalSensation: 14, minimumOfTheDay: 44, maximumOfTheDay: 44, climate: Climate.cloudy, day: DayOfTheWeek.sunday, humidity: 34 )
-//                         day: DayOfTheWeek.sunday, humidity: 34 ),
-//        Specifications ( city: States.SaoPaulo, currentTemperature: 13, thermalSensation: 14, minimumOfTheDay: 44, maximumOfTheDay: 44, climate: Climate.rain,
-//                         day: DayOfTheWeek.sunday, humidity: 34 )
+        //     Specifications ( city: States.SaoPaulo, currentTemperature: 13, thermalSensation: 14, minimumOfTheDay: 44, maximumOfTheDay: 44, climate: Climate.sun,
+        //                      day: DayOfTheWeek.sunday, humidity: 34, weekDaysInfo),
     ]
 }
-
 extension HomeScreenViewController:UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -38,7 +38,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="CollectionView" destination="jkJ-Ld-SLm" id="osr-5G-5Tw"/>
+                        <outlet property="CollectionView" destination="jkJ-Ld-SLm" id="OrV-XN-AgI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

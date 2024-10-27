@@ -19,38 +19,44 @@ class CustomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var MaxOfWeek: UILabel!
     
     //Dias da semana
-    //Dia0
+    //Dia1
     @IBOutlet weak var DaysOfWeek0: UILabel!
     @IBOutlet weak var Degrees0: UILabel!
     @IBOutlet weak var Min0: UILabel!
     @IBOutlet weak var Max0: UILabel!
-    //Dia1
+    //Dia2
     @IBOutlet weak var DaysOfWeek1: UILabel!
     @IBOutlet weak var Degrees1: UILabel!
     @IBOutlet weak var Min1: UILabel!
     @IBOutlet weak var Max1: UILabel!
-    //Dia2
+    //Dia3
     @IBOutlet weak var DaysOfWeek2: UILabel!
     @IBOutlet weak var Degrees2: UILabel!
     @IBOutlet weak var Min2: UILabel!
     @IBOutlet weak var Max2: UILabel!
-    //Dia3
+    //Dia4
     @IBOutlet weak var DaysOfWeek3: UILabel!
     @IBOutlet weak var Degrees3: UILabel!
     @IBOutlet weak var Min3: UILabel!
     @IBOutlet weak var Max3: UILabel!
-    //Dia4
+    //Dia5
     @IBOutlet weak var DaysOfWeek4: UILabel!
     @IBOutlet weak var Degrees4: UILabel!
     @IBOutlet weak var Min4: UILabel!
     @IBOutlet weak var Max4: UILabel!
-    //Dia5
-    
     //Dia6
-    
+    @IBOutlet weak var DaysOfWeek5: UILabel!
+    @IBOutlet weak var Degrees5: UILabel!
+    @IBOutlet weak var Min5: UILabel!
+    @IBOutlet weak var Max5: UILabel!
     //Dia7
+    @IBOutlet weak var DaysOfWeek6: UILabel!
+    @IBOutlet weak var Degrees6: UILabel!
+    @IBOutlet weak var Min6: UILabel!
+    @IBOutlet weak var Max6: UILabel!
+    // Text
+    @IBOutlet weak var BaseBoard: UILabel!
     
-
     static let identifier: String = String(describing: CustomCollectionViewCell.self) // deixa a celula statica, nao guardando memoria
    
     static func nib () ->UINib {
