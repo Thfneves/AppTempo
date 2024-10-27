@@ -16,8 +16,11 @@ struct Specifications{
     var climate: Climate
     var day: DayOfTheWeek
     var humidity:Double
+   // var weekDaysInfo: [WeekDaysInfo]
     
 }
+
+
 enum States: String{
     case SaoPaulo = "SaoPaulo"
     case RioDeJaneiro = "Rio de janeiro"
@@ -44,3 +47,9 @@ enum DayOfTheWeek: String{
 
 // Criar enum para city e tem outro, preciso conferir com o gabriel.
 // Fazer POO usando struct, enum  para o array.
+// 1 mostrar tudo da celula,
+// 2 criar as conexoes e linkar as info
+// 3 acrescentar a variavel e criar as structs ( array)
+// 4 linkar as informacoes novas na tela.
+// funcoes assincronas na terca e lidar com var opcionalidades.
+// seg ver aula de funcoes assincronas.

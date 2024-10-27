@@ -32,19 +32,16 @@ class HomeScreenViewController: UIViewController {
     }
 
     var itensList: [Specifications] = [
-        Specifications ( city: States.SaoPaulo, currentTemperature: 13, thermalSensation: 14, minimumOfTheDay: 44, maximumOfTheDay: 44, climate: Climate.sun,
-                         day: DayOfTheWeek.sunday, humidity: 34 ),
-//        Specifications ( city: States.SaoPaulo, currentTemperature: 13, thermalSensation: 14, minimumOfTheDay: 44, maximumOfTheDay: 44, climate: Climate.cloudy,
+   //     Specifications ( city: States.SaoPaulo, currentTemperature: 13, thermalSensation: 14, minimumOfTheDay: 44, maximumOfTheDay: 44, climate: Climate.sun,
+   //                      day: DayOfTheWeek.sunday, humidity: 34, weekDaysInfo),
+    Specifications ( city: States.SaoPaulo, currentTemperature: 13, thermalSensation: 14, minimumOfTheDay: 44, maximumOfTheDay: 44, climate: Climate.cloudy, day: DayOfTheWeek.sunday, humidity: 34 )
 //                         day: DayOfTheWeek.sunday, humidity: 34 ),
 //        Specifications ( city: States.SaoPaulo, currentTemperature: 13, thermalSensation: 14, minimumOfTheDay: 44, maximumOfTheDay: 44, climate: Climate.rain,
 //                         day: DayOfTheWeek.sunday, humidity: 34 )
     ]
 }
 
-extension HomeScreenViewController:UICollectionViewDelegate {
-    
-}
-extension HomeScreenViewController:UICollectionViewDataSource {
+extension HomeScreenViewController:UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itensList.count
@@ -56,7 +53,13 @@ extension HomeScreenViewController:UICollectionViewDataSource {
         return cell ?? UICollectionViewCell()
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 375)
+        return CGSize(width: view.frame.width, height: view.frame.height)
     }
     
 }
+
+
+//  arrumar tela custom
+//
+//
+

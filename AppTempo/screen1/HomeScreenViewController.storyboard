@@ -16,16 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sun-rays-cloudy-sky" translatesAutoresizingMaskIntoConstraints="NO" id="4xH-hD-owt">
-                                <rect key="frame" x="0.0" y="-6" width="383" height="818"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jkJ-Ld-SLm">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FDT-f5-IND">
-                                    <size key="itemSize" width="304" height="163"/>
+                                    <size key="itemSize" width="375" height="812"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -35,14 +31,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <constraints>
-                            <constraint firstItem="jkJ-Ld-SLm" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="ANh-Lg-qhW"/>
-                            <constraint firstItem="jkJ-Ld-SLm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Ckg-23-GUR"/>
-                            <constraint firstItem="jkJ-Ld-SLm" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="KP1-5o-iyk"/>
-                            <constraint firstItem="jkJ-Ld-SLm" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Ll1-mW-05A"/>
-                            <constraint firstItem="jkJ-Ld-SLm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="hJ9-CD-sDr"/>
-                            <constraint firstAttribute="bottom" secondItem="jkJ-Ld-SLm" secondAttribute="bottom" id="pUi-2G-fYn"/>
-                            <constraint firstItem="jkJ-Ld-SLm" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="rd6-AE-rng"/>
-                            <constraint firstAttribute="bottom" secondItem="jkJ-Ld-SLm" secondAttribute="bottom" id="t5E-Du-7W8"/>
+                            <constraint firstAttribute="bottom" secondItem="jkJ-Ld-SLm" secondAttribute="bottom" id="WIf-Om-2Gh"/>
+                            <constraint firstItem="jkJ-Ld-SLm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="cHY-Uk-Sq5"/>
+                            <constraint firstItem="jkJ-Ld-SLm" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="fDe-kT-Zu4"/>
+                            <constraint firstItem="jkJ-Ld-SLm" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="fc4-p9-UXS"/>
                         </constraints>
                     </view>
                     <connections>
@@ -55,7 +47,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="sun-rays-cloudy-sky" width="4000" height="6000"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

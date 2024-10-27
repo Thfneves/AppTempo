@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -29,7 +28,6 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="rUO-wg-p3W" secondAttribute="trailing" id="1Uh-iM-VWx"/>
                             <constraint firstItem="rUO-wg-p3W" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="JYF-4Q-PPY"/>
@@ -49,8 +47,5 @@
     </scenes>
     <resources>
         <image name="sun-rays-cloudy-sky" width="4000" height="6000"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
