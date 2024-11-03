@@ -27,6 +27,8 @@ class HomeScreenViewController: UIViewController {
         }
         CollectionView.register(CustomCollectionViewCell.nib(), forCellWithReuseIdentifier: CustomCollectionViewCell.identifier)
     }
+    
+    
     var itensList: [Specifications] = [
         Specifications (city: States.SaoPaulo, weatherToday: "Chuvoso", degreesToday: 30, dayOfWeek: .wednesday, minOfWeek: 10, maxOfWeek: 30,
                         
