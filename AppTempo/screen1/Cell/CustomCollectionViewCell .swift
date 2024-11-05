@@ -10,6 +10,8 @@ import UIKit
 
 class CustomCollectionViewCell: UICollectionViewCell {
     
+    
+    
     // Primeira Stack View
     @IBOutlet weak var City: UILabel!
     @IBOutlet weak var WeatherToday: UILabel! //Clima hoje
@@ -17,6 +19,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var DayOfWeek: UILabel! // dia da semana
     @IBOutlet weak var MinOfWeek: UILabel!
     @IBOutlet weak var MaxOfWeek: UILabel!
+    
     
     //Dias da semana
     //Dia1
@@ -57,24 +60,26 @@ class CustomCollectionViewCell: UICollectionViewCell {
     // Text
     @IBOutlet weak var BaseBoard: UILabel!
     
-    static let identifier: String = String(describing: CustomCollectionViewCell.self) // deixa a celula statica, nao guardando memoria
-   
+    //ViewBAR Collection
+    @IBOutlet weak var ViewBarCollectionViewCe: UICollectionView!
+    
+    static let identifier: String = String(describing: CustomCollectionViewCell.self)
+    
     static func nib () ->UINib {
         return UINib(nibName: identifier, bundle: nil)
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        ConfigViewBarCollectionView()
     }
     func setupCell(with specifications: Specifications){
-
-       City.text = String(specifications.city.rawValue)
+        
+        City.text = String(specifications.city.rawValue)
         WeatherToday.text = String(specifications.weatherToday.description)
         DegreesToday.text = String(specifications.degreesToday)
         DayOfWeek.text = String(specifications.dayOfWeek.rawValue)
         MinOfWeek.text = String(specifications.minOfWeek)
         MaxOfWeek.text = String(specifications.maxOfWeek)
-//       climateImage.image = UIImage(named: specifications.climate.rawValue)
         // Dia 1
         DaysOfWeek1.text = String(specifications.day1.daysOfWeek1.rawValue)
         Degrees1.text = String(specifications.day1.degrees1)
@@ -110,7 +115,41 @@ class CustomCollectionViewCell: UICollectionViewCell {
         Degrees7.text = String(specifications.day7.degrees7)
         Min7.text = String(specifications.day7.min7)
         Max7.text = String(specifications.day7.max7)
-
+        
     }
     
+    func ConfigViewBarCollectionView(){
+        ViewBarCollectionViewCe.delegate = self
+        ViewBarCollectionViewCe.dataSource = self
+        if let layout = ViewBarCollectionViewCe.collectionViewLayout as? UICollectionViewFlowLayout{
+            layout.scrollDirection = .horizontal
+            layout.estimatedItemSize = .zero
+            
+        }
+        //ViewBarCollectionViewCell.register(UINib(nibName: "ViewBarCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ViewBarCollectionViewCell")
+        ViewBarCollectionViewCe.register(ViewBarCollectionViewCell.nib(), forCellWithReuseIdentifier: ViewBarCollectionViewCell.identifier)
+    }
+    
+    var infoBar: [InfoBar] = [
+        InfoBar(timerBar: 30, ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  )
+    ]
 }
+extension CustomCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return infoBar.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = ViewBarCollectionViewCe.dequeueReusableCell(withReuseIdentifier: ViewBarCollectionViewCell.identifier, for: indexPath) as? ViewBarCollectionViewCell
+        cell?.setupBar (with: infoBar[indexPath.row])
+        return cell ?? UICollectionViewCell()
+    }
+
+    
+}
+//extension ViewController:UICollectionViewDelegateFlowLayout{
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: view.frame.width, height: view.frame.height)
+//    }
+//    
+//}
