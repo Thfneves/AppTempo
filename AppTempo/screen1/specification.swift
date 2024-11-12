@@ -100,7 +100,7 @@ enum DayOfTheWeek: String{
 
 // bar
 struct InfoBar{
-    var timerBar: Int
+    var timerBar: String
     var ChangeOfRainBar: Int
     var degreesBar: Int
     var weatherImageBar: Climate

@@ -16,6 +16,7 @@ class HomeScreenViewController: UIViewController {
         super.viewDidLoad()
         configCollectionView()
         CollectionView.backgroundColor = UIColor.clear
+        
         // Do any additional setup after loading the view.
     }
     func configCollectionView(){
