@@ -12,14 +12,15 @@ class HomeScreenViewController: UIViewController {
     @IBOutlet weak var CollectionView: UICollectionView!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        ApiRun()
         configCollectionView()
         CollectionView.backgroundColor = UIColor.clear
+        
         // Do any additional setup after loading the view.
     }
-    
+    private var service = Service()
     
     func configCollectionView(){
         CollectionView.delegate = self
@@ -30,21 +31,40 @@ class HomeScreenViewController: UIViewController {
         }
         CollectionView.register(CustomCollectionViewCell.nib(), forCellWithReuseIdentifier: CustomCollectionViewCell.identifier)
     }
-
-    var itensList: [Specifications] = [
-        Specifications ( city: States.SaoPaulo, currentTemperature: 13, thermalSensation: 14, minimumOfTheDay: 44, maximumOfTheDay: 44, climate: Climate.sun,
-                         day: DayOfTheWeek.sunday, humidity: 34 ),
-//        Specifications ( city: States.SaoPaulo, currentTemperature: 13, thermalSensation: 14, minimumOfTheDay: 44, maximumOfTheDay: 44, climate: Climate.cloudy,
-//                         day: DayOfTheWeek.sunday, humidity: 34 ),
-//        Specifications ( city: States.SaoPaulo, currentTemperature: 13, thermalSensation: 14, minimumOfTheDay: 44, maximumOfTheDay: 44, climate: Climate.rain,
-//                         day: DayOfTheWeek.sunday, humidity: 34 )
-    ]
-}
-
-extension HomeScreenViewController:UICollectionViewDelegate {
     
+    
+    func ApiRun() {
+        service.getExchangeRate { [weak self] (resultado) in
+            DispatchQueue.main.async {
+                if let resultadoDesempacotado = resultado {
+                    self?.itensList = [resultadoDesempacotado] // Adiciona ao array
+                    self?.CollectionView.reloadData()
+                } else {
+                    Swift.print("Erro: resultado retornou nil")
+                }
+            }
+        }
+    }
+    var itensList: [Welcome] = []
+    
+    
+    func getDayOfWeek(from welcome: Welcome) -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(welcome.dt)) // Converte timestamp para Date
+        
+        // Configurando o DateFormatter para obter apenas o dia da semana
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "pt_BR") // Configuração para o Brasil
+        formatter.dateFormat = "EEEE" // Formato para exibir o dia da semana completo
+        
+        let dayOfWeek = formatter.string(from: date) // Gera o dia da semana
+        return dayOfWeek.capitalized // Deixa a primeira letra maiúscula
+    }
+  
+
+
 }
-extension HomeScreenViewController:UICollectionViewDataSource {
+
+extension HomeScreenViewController:UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itensList.count
@@ -56,7 +76,7 @@ extension HomeScreenViewController:UICollectionViewDataSource {
         return cell ?? UICollectionViewCell()
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 375)
+        return CGSize(width: view.frame.width, height: view.frame.height)
     }
     
 }
