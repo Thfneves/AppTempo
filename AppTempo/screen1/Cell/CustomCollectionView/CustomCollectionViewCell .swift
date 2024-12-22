@@ -42,7 +42,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
    
             
     
-    func setupCell(with specifications: Welcome){
+    func setupCell(with specifications: Welcome) {
         
         func GetDayOfWeek(dt: Int) -> String{
             let date = Date(timeIntervalSince1970: TimeInterval(specifications.dt))
@@ -52,17 +52,21 @@ class CustomCollectionViewCell: UICollectionViewCell {
             let getDayOfWeek = formatter.string(from: date).capitalized
                return getDayOfWeek
         }
-        //  Preciso converter Degrees today, que retorna da api em ingles, e trazer para portugues.
-        let weatherMain = specifications.weather[0].main
-        if weatherMain == WeatherTranslate{
+   
+        func translateWeather(_ weatherCondition: String)-> String {
+            if let translatedCondition = WeatherTranslate[weatherCondition.lowercased()] {
+                return translatedCondition
+            } else {
+                return "Tradução não encontrada"
+            }
             
         }
+        let weatherCondition = String(specifications.weather[0].main)
+        let translatedWeather = translateWeather(weatherCondition)   // Arrumar condicoes e estrutura, tem muitas linhas no codigo que podem ser otimizadas.
+        WeatherToday.text = translatedWeather
+        print(translatedWeather)
         
-        
-        
-        
-       
-        func ConversionDegreesToday() ->Temp{
+        func ConversionDegreesToday() ->Temp{                               // passar funcoes para outro lugar MVC ou MVVM
             let tempToday = specifications.main.temp - 273.15
             let minOfDay = specifications.main.tempMin - 273.15
             let maxOfDay = specifications.main.tempMax - 273.15
@@ -72,10 +76,9 @@ class CustomCollectionViewCell: UICollectionViewCell {
                 tempToday:String(format: "%.1f", tempToday)
                 )
         }
-        let dayOfWeek = GetDayOfWeek(dt: specifications.dt)
-        DayOfWeek.text = String(dayOfWeek)
+        DayOfWeek.text = GetDayOfWeek(dt: specifications.dt)
         City.text = String(specifications.name)
-        WeatherToday.text = String(specifications.weather[0].main)
+        WeatherToday.text = String(translatedWeather)                   //  --> Clouds
         DegreesToday.text = String(ConversionDegreesToday().tempToday)
 //        DayOfWeek.text = getCurrentDayOfWeek()
         MinOfWeek.text =  String(ConversionDegreesToday().minOfDay)
@@ -87,7 +90,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
 
 
     var infoBar: [InfoBar] = [
-        InfoBar(timerBar: "11:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy ),
+        InfoBar(timerBar: "11:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),
         InfoBar(timerBar: "12:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),
         InfoBar(timerBar: "13:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),
         InfoBar(timerBar: "14:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),

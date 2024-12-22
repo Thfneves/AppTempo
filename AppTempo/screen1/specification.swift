@@ -17,7 +17,7 @@ struct Specifications{
     var minOfWeek: Double
     var maxOfWeek: Double
     var currentTimestamp: TimeInterval?
-   
+    
 }
 
 //struct Day1{
@@ -86,7 +86,7 @@ enum Climate: String{
 //    case friday = "Friday"
 //    case saturday = "Saturday"
 //    case sunday = "Sunday"
-//    
+//
 //}
 
 // bar
@@ -101,37 +101,43 @@ struct Temp{
     var maxOfDay: String
     var tempToday: String
 }
-enum WeatherTranslate: String{
-    case clearSky = "clear sky"
-    case fewClouds = "few clouds"
-    case scatteredClouds = "scattered clouds"
-    case brokenClouds = "broken clouds"
-    case rain = "rain"
-    case thunderstorm = "thunderstorm"
-    case snow = "snow"
-    case mist = "mist"
-        
-        func WeatherValidate() -> String{
-            switch self{
-            case .clearSky:
-                return "Céu limpo"
-            case .fewClouds:
-                return "poucas nuvens"
-            case .scatteredClouds:
-                return "nuvens dispersas"
-            case .brokenClouds:
-                return "Chuva com nevoa"
-            case .rain:
-                return "Chuva"
-            case .thunderstorm:
-                return "Tempestade"
-            case .snow:
-                return "neve"
-            case .mist:
-                return "névoa"
-            }
-        }
-    }
 
-    
+let WeatherTranslate: [String: String] = [
+    //    case clearSky =
+    //    case fewClouds = "few clouds"
+    //    case scatteredClouds = "scattered clouds"
+    //    case brokenClouds = "broken clouds"
+    //    case rain = "rain"
+    //    case thunderstorm = "thunderstorm"
+    //    case snow = "snow"
+    //    case mist = "mist"
+    //
+    //    func dictionaryWeather() {
+    //            switch self{
+    //            case .clearSky:
+    //                return "Céu limpo"
+    //            case .fewClouds:
+    //                return "poucas nuvens"
+    //            case .scatteredClouds:
+    //                return "nuvens dispersas"
+    //            case .brokenClouds:
+    //                return "Chuva com nevoa"
+    //            case .rain:
+    //                return "Chuva"
+    //            case .thunderstorm:
+    //                return "Tempestade"
+    //            case .snow:
+    //                return "neve"
+    //            case .mist:
+    //                return "névoa"
+    "clear sky": "Céu limpo",
+    "few clouds": "poucas nuvens",
+    "scattered clouds": "nuvens dispersas",
+    "broken clouds": "Chuva com nevoa",
+    "rain": "Chuva",
+    "thunderstorm": "Tempestade",
+    "snow": "neve",
+    "mist": "névoa",
+    "clouds": "Nuvens"
+]
 
