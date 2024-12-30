@@ -122,7 +122,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="92" id="fOI-IO-NaN"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -679,6 +679,7 @@
                 <outlet property="DegreesToday" destination="gbY-Nk-ypj" id="bR2-Bs-4hI"/>
                 <outlet property="MaxOfWeek" destination="x3y-He-cN9" id="YKm-9D-gFr"/>
                 <outlet property="MinOfWeek" destination="PVR-yK-hcl" id="Qni-ti-34X"/>
+                <outlet property="PictureClimateToday" destination="yTO-nd-tIf" id="Jbs-12-0Sm"/>
                 <outlet property="ViewBarCollectionViewCe" destination="Gnd-UB-qTj" id="aBA-Ea-QiD"/>
                 <outlet property="WeatherToday" destination="WAl-Ln-QJQ" id="4EY-im-JKK"/>
             </connections>

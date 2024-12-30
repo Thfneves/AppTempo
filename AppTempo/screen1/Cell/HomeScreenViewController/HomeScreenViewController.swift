@@ -17,8 +17,7 @@ class HomeScreenViewController: UIViewController {
         ApiRun()
         configCollectionView()
         CollectionView.backgroundColor = UIColor.clear
-        
-        // Do any additional setup after loading the view.
+    
     }
     private var service = Service()
     
@@ -37,7 +36,7 @@ class HomeScreenViewController: UIViewController {
         service.getExchangeRate { [weak self] (resultado) in
             DispatchQueue.main.async {
                 if let resultadoDesempacotado = resultado {
-                    self?.itensList = [resultadoDesempacotado] // Adiciona ao array
+                    self?.itensList = [resultadoDesempacotado]
                     self?.CollectionView.reloadData()
                 } else {
                     Swift.print("Erro: resultado retornou nil")
@@ -49,19 +48,15 @@ class HomeScreenViewController: UIViewController {
     
     
     func getDayOfWeek(from welcome: Welcome) -> String {
-        let date = Date(timeIntervalSince1970: TimeInterval(welcome.dt)) // Converte timestamp para Date
-        
-        // Configurando o DateFormatter para obter apenas o dia da semana
+        let date = Date(timeIntervalSince1970: TimeInterval(welcome.dt))
         let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "pt_BR") // Configuração para o Brasil
-        formatter.dateFormat = "EEEE" // Formato para exibir o dia da semana completo
+        formatter.locale = Locale(identifier: "pt_BR")
+        formatter.dateFormat = "EEEE"
         
-        let dayOfWeek = formatter.string(from: date) // Gera o dia da semana
-        return dayOfWeek.capitalized // Deixa a primeira letra maiúscula
+        let dayOfWeek = formatter.string(from: date)
+        return dayOfWeek.capitalized
     }
   
-
-
 }
 
 extension HomeScreenViewController:UICollectionViewDataSource, UICollectionViewDelegate {

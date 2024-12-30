@@ -20,10 +20,10 @@ class CustomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var MinOfWeek: UILabel!
     @IBOutlet weak var MaxOfWeek: UILabel!
     
+    @IBOutlet weak var PictureClimateToday: UIImageView!
     // Text
     @IBOutlet weak var BaseBoard: UILabel!
     
-    //ViewBAR Collection
     @IBOutlet weak var ViewBarCollectionViewCe: UICollectionView!
     
     static let identifier: String = String(describing: CustomCollectionViewCell.self)
@@ -34,60 +34,33 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+       
         ConfigViewBarCollectionView()
         ViewBarCollectionViewCe.backgroundColor = UIColor.clear
     }
     
-   
-            
-    
-    func setupCell(with specifications: Welcome) {
-        
-        func GetDayOfWeek(dt: Int) -> String{
-            let date = Date(timeIntervalSince1970: TimeInterval(specifications.dt))
-            let formatter = DateFormatter()
-              formatter.locale = Locale(identifier: "pt_BR") // Configuração para o Brasil
-              formatter.dateFormat = "EEEE" // Mostra o dia da semana por extenso
-            let getDayOfWeek = formatter.string(from: date).capitalized
-               return getDayOfWeek
-        }
-   
-        func translateWeather(_ weatherCondition: String)-> String {
-            if let translatedCondition = WeatherTranslate[weatherCondition.lowercased()] {
-                return translatedCondition
-            } else {
-                return "Tradução não encontrada"
-            }
-            
-        }
-        let weatherCondition = String(specifications.weather[0].main)
-        let translatedWeather = translateWeather(weatherCondition)   // Arrumar condicoes e estrutura, tem muitas linhas no codigo que podem ser otimizadas.
+
+    let controller = Controller()
+    // PORQUE LET CONTROLLER É INSTANCIAVEL E QUANDO TENTAMOS INSTANCIAR SPECIFICATION, O XCODE NOS OBRIGA A TRAZER UM INIT?
+    // Se eu tivesse na Struct  Controller, variaveis com tipos mas sem valor declarado, seria obrigado a utilizar um Init?
+    func setupCell(with welcome: Welcome) {
+       
+        let dayOfWeekText = controller.GetDayOfWeek(welcome: welcome)
+        let weatherImage = controller.weatherIcon(welcome.weather[0].main)
+        let weatherCondition = String(welcome.weather[0].main)
+        let translatedWeather = controller.translateWeather(weatherCondition)
+        // Pedir para o gabriel explicar a traducao, porque nao entendi muito bem como esse codigo funciona.
         WeatherToday.text = translatedWeather
-        print(translatedWeather)
-        
-        func ConversionDegreesToday() ->Temp{                               // passar funcoes para outro lugar MVC ou MVVM
-            let tempToday = specifications.main.temp - 273.15
-            let minOfDay = specifications.main.tempMin - 273.15
-            let maxOfDay = specifications.main.tempMax - 273.15
-            return Temp(
-                minOfDay: String(format: "%.1f", minOfDay),
-                maxOfDay: String(format: "%.1f", maxOfDay),
-                tempToday:String(format: "%.1f", tempToday)
-                )
-        }
-        DayOfWeek.text = GetDayOfWeek(dt: specifications.dt)
-        City.text = String(specifications.name)
-        WeatherToday.text = String(translatedWeather)                   //  --> Clouds
-        DegreesToday.text = String(ConversionDegreesToday().tempToday)
-//        DayOfWeek.text = getCurrentDayOfWeek()
-        MinOfWeek.text =  String(ConversionDegreesToday().minOfDay)
-        MaxOfWeek.text =  String(ConversionDegreesToday().maxOfDay)
-        
+        DayOfWeek.text = String(dayOfWeekText)
+        City.text = String(welcome.name)
+        WeatherToday.text = String(translatedWeather)
+        DegreesToday.text = controller.ConversionDegreesToday(welcome: welcome).tempToday
+        MinOfWeek.text =  controller.ConversionDegreesToday(welcome: welcome).minOfDay
+        MaxOfWeek.text =  controller.ConversionDegreesToday(welcome: welcome).maxOfDay
+        PictureClimateToday.image =  UIImage(named: weatherImage)
 
         
     }
-
 
     var infoBar: [InfoBar] = [
         InfoBar(timerBar: "11:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),
@@ -103,16 +76,14 @@ class CustomCollectionViewCell: UICollectionViewCell {
         InfoBar(timerBar: "20:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),
         InfoBar(timerBar: "21:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),
     ]
-    
+
     func ConfigViewBarCollectionView(){
         ViewBarCollectionViewCe.delegate = self
         ViewBarCollectionViewCe.dataSource = self
         if let layout = ViewBarCollectionViewCe.collectionViewLayout as? UICollectionViewFlowLayout{
             layout.scrollDirection = .horizontal
             layout.estimatedItemSize = .zero
-            
         }
-        //ViewBarCollectionViewCell.register(UINib(nibName: "ViewBarCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ViewBarCollectionViewCell")
         ViewBarCollectionViewCe.register(ViewBarCollectionViewCell.nib(), forCellWithReuseIdentifier: ViewBarCollectionViewCell.identifier)
     }
     
@@ -127,10 +98,5 @@ extension CustomCollectionViewCell: UICollectionViewDelegate, UICollectionViewDa
         cell?.setupBar (with: infoBar[indexPath.row])
         return cell ?? UICollectionViewCell()
     }
-    //extension ViewController:UICollectionViewDelegateFlowLayout{
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    //        return CGSize(width: view.frame.width, height: view.frame.height)
-    //    }
-    //
-    //}
+
 }
