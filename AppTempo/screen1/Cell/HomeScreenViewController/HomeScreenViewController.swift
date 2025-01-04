@@ -16,7 +16,7 @@ class HomeScreenViewController: UIViewController {
         super.viewDidLoad()
         ApiRun()
         configCollectionView()
-        CollectionView.backgroundColor = UIColor.clear
+       CollectionView.backgroundColor = UIColor.clear
     
     }
     private var service = Service()
