@@ -1,10 +1,4 @@
-//
-//  CustomCollectionViewCell 2.swift
-//  AppTempo
-//
-//  Created by Thiago Neves on 24/10/24.
-//
-//Copia collectionview
+
 
 import UIKit
 
@@ -54,7 +48,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         DayOfWeek.text = String(dayOfWeekText)
         City.text = String(welcome.name)
         WeatherToday.text = String(translatedWeather)
-        DegreesToday.text = controller.ConversionDegreesToday(welcome: welcome).tempToday
+        DegreesToday.text = "\(controller.ConversionDegreesToday(welcome: welcome).tempToday) °C"
         MinOfWeek.text =  controller.ConversionDegreesToday(welcome: welcome).minOfDay
         MaxOfWeek.text =  controller.ConversionDegreesToday(welcome: welcome).maxOfDay
         PictureClimateToday.image =  UIImage(named: weatherImage)

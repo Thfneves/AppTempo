@@ -44,18 +44,10 @@ class HomeScreenViewController: UIViewController {
             }
         }
     }
+    
+    
     var itensList: [Welcome] = []
     
-    
-    func getDayOfWeek(from welcome: Welcome) -> String {
-        let date = Date(timeIntervalSince1970: TimeInterval(welcome.dt))
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "pt_BR")
-        formatter.dateFormat = "EEEE"
-        
-        let dayOfWeek = formatter.string(from: date)
-        return dayOfWeek.capitalized
-    }
   
 }
 
