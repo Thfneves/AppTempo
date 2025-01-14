@@ -673,15 +673,15 @@
             </constraints>
             <size key="customSize" width="547" height="321"/>
             <connections>
-                <outlet property="BaseBoard" destination="Qfi-qN-Pc6" id="WRn-r5-HHp"/>
-                <outlet property="City" destination="mnP-1I-th1" id="IMw-wZ-pbK"/>
-                <outlet property="DayOfWeek" destination="F8w-oU-CAx" id="fKT-TI-pbs"/>
-                <outlet property="DegreesToday" destination="gbY-Nk-ypj" id="bR2-Bs-4hI"/>
-                <outlet property="MaxOfWeek" destination="x3y-He-cN9" id="YKm-9D-gFr"/>
-                <outlet property="MinOfWeek" destination="PVR-yK-hcl" id="Qni-ti-34X"/>
-                <outlet property="PictureClimateToday" destination="yTO-nd-tIf" id="Jbs-12-0Sm"/>
-                <outlet property="ViewBarCollectionViewCe" destination="Gnd-UB-qTj" id="aBA-Ea-QiD"/>
-                <outlet property="WeatherToday" destination="WAl-Ln-QJQ" id="4EY-im-JKK"/>
+                <outlet property="baseBoard" destination="Qfi-qN-Pc6" id="djh-wh-tAf"/>
+                <outlet property="city" destination="mnP-1I-th1" id="pv1-cR-sFT"/>
+                <outlet property="dayOfWeek" destination="F8w-oU-CAx" id="Tvm-cy-Hmf"/>
+                <outlet property="degreesToday" destination="gbY-Nk-ypj" id="UcN-qX-8BS"/>
+                <outlet property="maxOfWeek" destination="x3y-He-cN9" id="9uK-gT-tfX"/>
+                <outlet property="minOfWeek" destination="PVR-yK-hcl" id="JQU-LY-jWp"/>
+                <outlet property="pictureClimateToday" destination="yTO-nd-tIf" id="JpY-HU-PuC"/>
+                <outlet property="viewBarCollectionViewCe" destination="Gnd-UB-qTj" id="crO-gO-cox"/>
+                <outlet property="weatherToday" destination="WAl-Ln-QJQ" id="wOU-o8-r4m"/>
             </connections>
             <point key="canvasLocation" x="403.81679389312973" y="-58.450704225352112"/>
         </collectionViewCell>

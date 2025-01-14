@@ -9,35 +9,33 @@ import UIKit
 
 class HomeScreenViewController: UIViewController {
     
-    @IBOutlet weak var CollectionView: UICollectionView!
-    
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ApiRun()
         configCollectionView()
-       CollectionView.backgroundColor = UIColor.clear
-    
+        collectionView.backgroundColor = UIColor.clear
     }
+    
     private var service = Service()
     
     func configCollectionView(){
-        CollectionView.delegate = self
-        CollectionView.dataSource = self
-        if let layout = CollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
             layout.estimatedItemSize = .zero
         }
-        CollectionView.register(CustomCollectionViewCell.nib(), forCellWithReuseIdentifier: CustomCollectionViewCell.identifier)
+        collectionView.register(CustomCollectionViewCell.nib(), forCellWithReuseIdentifier: CustomCollectionViewCell.identifier)
     }
-    
     
     func ApiRun() {
         service.getExchangeRate { [weak self] (resultado) in
             DispatchQueue.main.async {
                 if let resultadoDesempacotado = resultado {
                     self?.itensList = [resultadoDesempacotado]
-                    self?.CollectionView.reloadData()
+                    self?.collectionView.reloadData()
                 } else {
                     Swift.print("Erro: resultado retornou nil")
                 }
@@ -45,10 +43,8 @@ class HomeScreenViewController: UIViewController {
         }
     }
     
-    
     var itensList: [Welcome] = []
     
-  
 }
 
 extension HomeScreenViewController:UICollectionViewDataSource, UICollectionViewDelegate {
@@ -58,10 +54,11 @@ extension HomeScreenViewController:UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = CollectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell
         cell?.setupCell (with: itensList[indexPath.row])
         return cell ?? UICollectionViewCell()
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)
     }

@@ -17,9 +17,6 @@ struct Specifications{
     var maxOfWeek: Double
     var currentTimestamp: TimeInterval?
     var dayOfWeekTranslate: String
-    
-  
-    
 }
 
 enum States: String{
@@ -42,6 +39,7 @@ struct InfoBar{
     var degreesBar: Int
     var weatherImageBar: Climate
 }
+
 struct Temp{
     var minOfDay: String
     var maxOfDay: String
@@ -62,9 +60,7 @@ let WeatherTranslate: [String: (String, String)] = [
     "rain": ("Chuva","Rain"),
     
     "thunderstorm": ("Chuvas fortes","Rain")
-   
- 
-    
+       
 ]
 
 

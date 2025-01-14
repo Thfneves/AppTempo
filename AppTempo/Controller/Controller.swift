@@ -8,6 +8,18 @@
 import Foundation
 struct Controller{
     
+    let imageDict: [WeatherType: String] = [
+        .clear: "Sun",
+        .clearSky: "Sun",
+        .clouds: "Cloudy",
+        .mist: "Cloudy",
+        .fewClouds: "Cloudy",
+        .scatteredClouds: "Cloudy",
+        .brokenClouds: "Cloudy",
+        .rain: "Rain",
+        .thunderstorm: "Rain",
+        .unknown: "Sun"
+    ]
     
     func GetDayOfWeek(welcome: Welcome) -> String{
         let date = Date(timeIntervalSince1970: TimeInterval(welcome.dt))
@@ -17,14 +29,13 @@ struct Controller{
         let getDayOfWeek = formatter.string(from: date).capitalized
         return getDayOfWeek
     }
+    
     func translateWeather(_ weatherCondition: String)-> String {
-      
         if let translatedCondition = WeatherTranslate[weatherCondition.lowercased()] {
             return translatedCondition.0
         } else {
             return "Tradução não encontrada"
         }
-        
     }
     
     func weatherIcon(_ weatherCondition: String)-> String {
@@ -36,7 +47,6 @@ struct Controller{
         }
     }
     
-    
     func ConversionDegreesToday(welcome: Welcome) ->Temp{
         let tempToday = welcome.main.temp - 273.15
         let minOfDay = welcome.main.tempMin - 273.15
@@ -45,9 +55,9 @@ struct Controller{
             minOfDay: String(format: "%.1f", minOfDay),
             maxOfDay: String(format: "%.1f", maxOfDay),
             tempToday:String(format: "%.1f", tempToday)
-            )
+        )
     }
     
-   
+    
     
 }

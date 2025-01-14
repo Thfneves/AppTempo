@@ -21,20 +21,10 @@ struct Welcome: Codable {
     let name: String //nome da cidade
     let cod: Int
 }
-
-
-
-
-// MARK: - Clouds
-//struct Clouds: Codable {
-//    let all: Int
-//}      por ser traduzido, pode ser algo importante, nao vou tirar agora
-
 // MARK: - Coord
 struct Coord: Codable {
     let lon, lat: Double
 }
-
 // MARK: - Main
 struct Main: Codable {
     let temp, feelsLike, tempMin, tempMax: Double
@@ -44,26 +34,58 @@ struct Main: Codable {
         case feelsLike = "feels_like" // sensacao termica
         case tempMin = "temp_min"     // minima
         case tempMax = "temp_max"    // maxima
-        //       case pressure, humidity   caso precise retornar, colocar o codable. do tipo Int
-        
     }
 }
-
 // MARK: - Sys
 struct Sys: Codable {
     let type, id: Int
     let country: String
-    //   let sunrise, sunset: Int hora do por do sol e nascer do sol
 }
-
 // MARK: - Weather
 struct Weather: Codable {
     let id: Int
-    let main: String   //Grupo de parâmetros climáticos (chuva, neve, nuvens etc.)
-    let description: String  //ondições climáticas dentro do grupo. Por favor, encontre mais aqui. Você pode obter a saída em seu idioma. Saiba mais
+    let main: WeatherType
+    let description: String
     let icon: String  //Ícone de identificação do clima
 }
-// todas as posicoes do array trarao o mesmo resultado " todas as variaveis, porque todo array e uma lista de variaveis do mesmo tipo"
+
+enum WeatherType: String, Codable {
+    case clear = "Limpo"
+    case clearSky = "Céu limpo"
+    case clouds = "Nublado"
+    case mist = "Neblina"
+    case fewClouds = "Poucas nuvens"
+    case scatteredClouds = "Nuvens dispersas"
+    case brokenClouds = "Nuvens quebradas"
+    case rain = "Chuva"
+    case thunderstorm = "Tempestade"
+    case unknown // Caso padrão para valores não reconhecidos
+    
+    init(rawValue: String) {
+        switch rawValue.lowercased() {
+        case "clear":
+            self = .clear
+        case "clear sky":
+            self = .clearSky
+        case "clouds":
+            self = .clouds
+        case "mist":
+            self = .mist
+        case "few clouds":
+            self = .fewClouds
+        case "scattered clouds":
+            self = .scatteredClouds
+        case "broken clouds":
+            self = .brokenClouds
+        case "rain":
+            self = .rain
+        case "thunderstorm":
+            self = .thunderstorm
+        default:
+            self = .unknown
+        }
+    }
+}
 
 enum ErrorRequest: Swift.Error {
     case fileNotFound(name: String)
@@ -88,7 +110,6 @@ class Service {
         //https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
     }
     
-    
     func getExchangeRate(completion: @escaping (Welcome?) -> Void) {
         
         guard let url = URL(string: urlString) else {
@@ -105,16 +126,11 @@ class Service {
                 do{
                     let person = try JSONDecoder().decode(Welcome.self, from: dataNotNil )
                     completion(person)
-                    print(person)
-                    
-                    
                 } catch {
-                    print(error)
                     return
                 }
             }
         }.resume()
     }
-
 }
 

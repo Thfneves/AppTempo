@@ -8,9 +8,8 @@
 import UIKit
 
 class ViewBarCollectionViewCell: UICollectionViewCell {
-    //image
+    
     @IBOutlet weak var weatherImage: UIImageView!
-    //Bar
     @IBOutlet weak var timerBar: UILabel!
     @IBOutlet weak var ChangeOfRainBar: UILabel!
     @IBOutlet weak var degreesBar: UILabel!
@@ -23,16 +22,12 @@ class ViewBarCollectionViewCell: UICollectionViewCell {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        // Initialization code
+
     }
     func setupBar (with infoBar: InfoBar){
-    //    weatherImageBar.text = String(infoBar.weatherImageBar)
         degreesBar.text = String(infoBar.degreesBar)
         ChangeOfRainBar.text = String(infoBar.ChangeOfRainBar)
         timerBar.text = String(infoBar.timerBar)
-
     }
-    
-    
+
 }

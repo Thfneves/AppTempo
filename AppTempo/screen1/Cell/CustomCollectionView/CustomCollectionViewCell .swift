@@ -4,21 +4,17 @@ import UIKit
 
 class CustomCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var city: UILabel!
+    @IBOutlet weak var weatherToday: UILabel! //Clima hoje
+    @IBOutlet weak var degreesToday: UILabel!   // Graus hOJE
+    @IBOutlet weak var dayOfWeek: UILabel! // dia da semana
+    @IBOutlet weak var minOfWeek: UILabel!
+    @IBOutlet weak var maxOfWeek: UILabel!
     
+    @IBOutlet weak var pictureClimateToday: UIImageView!
+    @IBOutlet weak var baseBoard: UILabel!
     
-    // Primeira Stack Vi
-    @IBOutlet weak var City: UILabel!
-    @IBOutlet weak var WeatherToday: UILabel! //Clima hoje
-    @IBOutlet weak var DegreesToday: UILabel!   // Graus hOJE
-    @IBOutlet weak var DayOfWeek: UILabel! // dia da semana
-    @IBOutlet weak var MinOfWeek: UILabel!
-    @IBOutlet weak var MaxOfWeek: UILabel!
-    
-    @IBOutlet weak var PictureClimateToday: UIImageView!
-    // Text
-    @IBOutlet weak var BaseBoard: UILabel!
-    
-    @IBOutlet weak var ViewBarCollectionViewCe: UICollectionView!
+    @IBOutlet weak var viewBarCollectionViewCe: UICollectionView!
     
     static let identifier: String = String(describing: CustomCollectionViewCell.self)
     
@@ -30,30 +26,25 @@ class CustomCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
        
         ConfigViewBarCollectionView()
-        ViewBarCollectionViewCe.backgroundColor = UIColor.clear
+        viewBarCollectionViewCe.backgroundColor = UIColor.clear
     }
-    
 
     let controller = Controller()
-    // PORQUE LET CONTROLLER É INSTANCIAVEL E QUANDO TENTAMOS INSTANCIAR SPECIFICATION, O XCODE NOS OBRIGA A TRAZER UM INIT?
-    // Se eu tivesse na Struct  Controller, variaveis com tipos mas sem valor declarado, seria obrigado a utilizar um Init?
     func setupCell(with welcome: Welcome) {
        
         let dayOfWeekText = controller.GetDayOfWeek(welcome: welcome)
-        let weatherImage = controller.weatherIcon(welcome.weather[0].main)
-        let weatherCondition = String(welcome.weather[0].main)
+        let weatherImage = controller.imageDict[ welcome.weather[0].main ] ?? "Sun"
+        let weatherCondition = String(welcome.weather[0].description)
         let translatedWeather = controller.translateWeather(weatherCondition)
-        // Pedir para o gabriel explicar a traducao, porque nao entendi muito bem como esse codigo funciona.
-        WeatherToday.text = translatedWeather
-        DayOfWeek.text = String(dayOfWeekText)
-        City.text = String(welcome.name)
-        WeatherToday.text = String(translatedWeather)
-        DegreesToday.text = "\(controller.ConversionDegreesToday(welcome: welcome).tempToday) °C"
-        MinOfWeek.text =  controller.ConversionDegreesToday(welcome: welcome).minOfDay
-        MaxOfWeek.text =  controller.ConversionDegreesToday(welcome: welcome).maxOfDay
-        PictureClimateToday.image =  UIImage(named: weatherImage)
+        weatherToday.text = translatedWeather
+        dayOfWeek.text = String(dayOfWeekText)
+        city.text = String(welcome.name)
+        weatherToday.text = String(translatedWeather)
+        degreesToday.text = "\(controller.ConversionDegreesToday(welcome: welcome).tempToday) °C"
+        minOfWeek.text =  controller.ConversionDegreesToday(welcome: welcome).minOfDay
+        maxOfWeek.text =  controller.ConversionDegreesToday(welcome: welcome).maxOfDay
+        pictureClimateToday.image =  UIImage(named: weatherImage)
 
-        
     }
 
     var infoBar: [InfoBar] = [
@@ -72,23 +63,23 @@ class CustomCollectionViewCell: UICollectionViewCell {
     ]
 
     func ConfigViewBarCollectionView(){
-        ViewBarCollectionViewCe.delegate = self
-        ViewBarCollectionViewCe.dataSource = self
-        if let layout = ViewBarCollectionViewCe.collectionViewLayout as? UICollectionViewFlowLayout{
+        viewBarCollectionViewCe.delegate = self
+        viewBarCollectionViewCe.dataSource = self
+        if let layout = viewBarCollectionViewCe.collectionViewLayout as? UICollectionViewFlowLayout{
             layout.scrollDirection = .horizontal
             layout.estimatedItemSize = .zero
         }
-        ViewBarCollectionViewCe.register(ViewBarCollectionViewCell.nib(), forCellWithReuseIdentifier: ViewBarCollectionViewCell.identifier)
+        viewBarCollectionViewCe.register(ViewBarCollectionViewCell.nib(), forCellWithReuseIdentifier: ViewBarCollectionViewCell.identifier)
     }
-    
 }
+
 extension CustomCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return infoBar.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = ViewBarCollectionViewCe.dequeueReusableCell(withReuseIdentifier: ViewBarCollectionViewCell.identifier, for: indexPath) as? ViewBarCollectionViewCell
+        let cell = viewBarCollectionViewCe.dequeueReusableCell(withReuseIdentifier: ViewBarCollectionViewCell.identifier, for: indexPath) as? ViewBarCollectionViewCell
         cell?.setupBar (with: infoBar[indexPath.row])
         return cell ?? UICollectionViewCell()
     }
