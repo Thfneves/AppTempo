@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		11AA2F3C2CC3F1AC00B10803 /* AppTempo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppTempo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		11BD913B2D405AA4008823EF /* AppTempo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppTempo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		11AA2F4E2CC3F1AE00B10803 /* Exceptions for "AppTempo" folder in "AppTempo" target */ = {
+		1178325D2D3C5A7D004AB6F1 /* Exceptions for "AppTempo" folder in "AppTempo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -21,10 +21,15 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		1178325B2D3C58CC004AB6F1 /* Services */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Services;
+			sourceTree = "<group>";
+		};
 		11AA2F3E2CC3F1AC00B10803 /* AppTempo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				11AA2F4E2CC3F1AE00B10803 /* Exceptions for "AppTempo" folder in "AppTempo" target */,
+				1178325D2D3C5A7D004AB6F1 /* Exceptions for "AppTempo" folder in "AppTempo" target */,
 			);
 			path = AppTempo;
 			sourceTree = "<group>";
@@ -46,16 +51,9 @@
 			isa = PBXGroup;
 			children = (
 				11AA2F3E2CC3F1AC00B10803 /* AppTempo */,
-				11AA2F3D2CC3F1AC00B10803 /* Products */,
+				1178325B2D3C58CC004AB6F1 /* Services */,
+				11BD913B2D405AA4008823EF /* AppTempo.app */,
 			);
-			sourceTree = "<group>";
-		};
-		11AA2F3D2CC3F1AC00B10803 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				11AA2F3C2CC3F1AC00B10803 /* AppTempo.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,13 +72,14 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				1178325B2D3C58CC004AB6F1 /* Services */,
 				11AA2F3E2CC3F1AC00B10803 /* AppTempo */,
 			);
 			name = AppTempo;
 			packageProductDependencies = (
 			);
 			productName = AppTempo;
-			productReference = 11AA2F3C2CC3F1AC00B10803 /* AppTempo.app */;
+			productReference = 11BD913B2D405AA4008823EF /* AppTempo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -108,7 +107,7 @@
 			mainGroup = 11AA2F332CC3F1AC00B10803;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 11AA2F3D2CC3F1AC00B10803 /* Products */;
+			productRefGroup = 11AA2F332CC3F1AC00B10803;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -150,7 +149,7 @@
 				INFOPLIST_FILE = AppTempo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = HomeViewController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -178,7 +177,7 @@
 				INFOPLIST_FILE = AppTempo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = HomeViewController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

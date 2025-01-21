@@ -7,8 +7,24 @@
 
 import Foundation
 struct Controller{
+      
+    struct Specifications{
+
+        var degreesToday: Double   // Graus hOJE
+        var dayOfWeek: String // dia da semana
+        var minOfWeek: Double
+        var maxOfWeek: Double
+        var currentTimestamp: TimeInterval?
+        var dayOfWeekTranslate: String
+    }
+
+    enum Climate: String{
+        case cloudy = "Cloudy"
+        case sun = "Sun"
+        case rain = "Rain"
+    }
     
-    let imageDict: [WeatherType: String] = [
+    static  let imageDict: [WeatherType: String] = [
         .clear: "Sun",
         .clearSky: "Sun",
         .clouds: "Cloudy",
@@ -20,7 +36,13 @@ struct Controller{
         .thunderstorm: "Rain",
         .unknown: "Sun"
     ]
-    
+
+    struct Temp{
+        var minOfDay: String
+        var maxOfDay: String
+        var tempToday: String
+    }
+
     func GetDayOfWeek(welcome: Welcome) -> String{
         let date = Date(timeIntervalSince1970: TimeInterval(welcome.dt))
         let formatter = DateFormatter()
@@ -29,23 +51,7 @@ struct Controller{
         let getDayOfWeek = formatter.string(from: date).capitalized
         return getDayOfWeek
     }
-    
-    func translateWeather(_ weatherCondition: String)-> String {
-        if let translatedCondition = WeatherTranslate[weatherCondition.lowercased()] {
-            return translatedCondition.0
-        } else {
-            return "Tradução não encontrada"
-        }
-    }
-    
-    func weatherIcon(_ weatherCondition: String)-> String {
-        
-        if let translatedCondition = WeatherTranslate[weatherCondition.lowercased()] {
-            return translatedCondition.1
-        } else {
-            return ""
-        }
-    }
+
     
     func ConversionDegreesToday(welcome: Welcome) ->Temp{
         let tempToday = welcome.main.temp - 273.15
@@ -58,6 +64,10 @@ struct Controller{
         )
     }
     
-    
-    
+}
+struct InfoBar{
+    var timerBar: String
+    var ChangeOfRainBar: Int
+    var degreesBar: Int
+    var weatherImageBar: Controller.Climate?
 }

@@ -304,7 +304,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
             endingLineNumber = "49"
-            landmarkName = "HomeScreenViewController"
+            landmarkName = "HomeViewController"
             landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>

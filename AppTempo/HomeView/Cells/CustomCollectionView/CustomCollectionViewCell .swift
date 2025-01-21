@@ -33,9 +33,9 @@ class CustomCollectionViewCell: UICollectionViewCell {
     func setupCell(with welcome: Welcome) {
        
         let dayOfWeekText = controller.GetDayOfWeek(welcome: welcome)
-        let weatherImage = controller.imageDict[ welcome.weather[0].main ] ?? "Sun"
+        let weatherImage = Controller.imageDict[ welcome.weather[0].main ] ?? "Sun"
         let weatherCondition = String(welcome.weather[0].description)
-        let translatedWeather = controller.translateWeather(weatherCondition)
+        let translatedWeather = welcome.weather[0].main.rawValue
         weatherToday.text = translatedWeather
         dayOfWeek.text = String(dayOfWeekText)
         city.text = String(welcome.name)
@@ -48,6 +48,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     }
 
     var infoBar: [InfoBar] = [
+       
         InfoBar(timerBar: "11:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),
         InfoBar(timerBar: "12:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),
         InfoBar(timerBar: "13:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeScreenViewController: UIViewController {
+class HomeViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -47,7 +47,7 @@ class HomeScreenViewController: UIViewController {
     
 }
 
-extension HomeScreenViewController:UICollectionViewDataSource, UICollectionViewDelegate {
+extension HomeViewController:UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itensList.count
