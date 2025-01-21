@@ -21,11 +21,6 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		1178325B2D3C58CC004AB6F1 /* Services */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Services;
-			sourceTree = "<group>";
-		};
 		11AA2F3E2CC3F1AC00B10803 /* AppTempo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -51,7 +46,6 @@
 			isa = PBXGroup;
 			children = (
 				11AA2F3E2CC3F1AC00B10803 /* AppTempo */,
-				1178325B2D3C58CC004AB6F1 /* Services */,
 				11BD913B2D405AA4008823EF /* AppTempo.app */,
 			);
 			sourceTree = "<group>";
@@ -72,7 +66,6 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				1178325B2D3C58CC004AB6F1 /* Services */,
 				11AA2F3E2CC3F1AC00B10803 /* AppTempo */,
 			);
 			name = AppTempo;

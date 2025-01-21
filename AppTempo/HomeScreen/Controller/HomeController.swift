@@ -8,15 +8,7 @@
 import Foundation
 struct Controller{
       
-    struct Specifications{
 
-        var degreesToday: Double   // Graus hOJE
-        var dayOfWeek: String // dia da semana
-        var minOfWeek: Double
-        var maxOfWeek: Double
-        var currentTimestamp: TimeInterval?
-        var dayOfWeekTranslate: String
-    }
 
     enum Climate: String{
         case cloudy = "Cloudy"
@@ -37,7 +29,7 @@ struct Controller{
         .unknown: "Sun"
     ]
 
-    struct Temp{
+    struct DayTemp{
         var minOfDay: String
         var maxOfDay: String
         var tempToday: String
@@ -53,11 +45,11 @@ struct Controller{
     }
 
     
-    func ConversionDegreesToday(welcome: Welcome) ->Temp{
+    func ConversionDegreesToday(welcome: Welcome) ->DayTemp{
         let tempToday = welcome.main.temp - 273.15
         let minOfDay = welcome.main.tempMin - 273.15
         let maxOfDay = welcome.main.tempMax - 273.15
-        return Temp(
+        return DayTemp(
             minOfDay: String(format: "%.1f", minOfDay),
             maxOfDay: String(format: "%.1f", maxOfDay),
             tempToday:String(format: "%.1f", tempToday)
