@@ -4,12 +4,9 @@
 //
 //  Created by Thiago Neves on 25/12/24.
 //
-
 import Foundation
 struct Controller{
       
-
-
     enum Climate: String{
         case cloudy = "Cloudy"
         case sun = "Sun"
@@ -33,9 +30,10 @@ struct Controller{
         var minOfDay: String
         var maxOfDay: String
         var tempToday: String
+       
     }
 
-    func GetDayOfWeek(welcome: Welcome) -> String{
+    func GetDayOfWeek(welcome: WeatherModel) -> String{
         let date = Date(timeIntervalSince1970: TimeInterval(welcome.dt))
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "pt_BR") // Configuração para o Brasil
@@ -44,8 +42,7 @@ struct Controller{
         return getDayOfWeek
     }
 
-    
-    func ConversionDegreesToday(welcome: Welcome) ->DayTemp{
+    func ConversionDegreesToday(welcome: WeatherModel) ->DayTemp{
         let tempToday = welcome.main.temp - 273.15
         let minOfDay = welcome.main.tempMin - 273.15
         let maxOfDay = welcome.main.tempMax - 273.15
@@ -63,3 +60,4 @@ struct InfoBar{
     var degreesBar: Int
     var weatherImageBar: Controller.Climate?
 }
+

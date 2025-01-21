@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewBarCollectionViewCell: UICollectionViewCell {
+class TempByHourCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var timerBar: UILabel!
@@ -15,7 +15,7 @@ class ViewBarCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var degreesBar: UILabel!
     @IBOutlet weak var weatherImageBar: UIImageView!
     
-    static let identifier: String = String(describing: ViewBarCollectionViewCell.self)
+    static let identifier: String = String(describing: TempByHourCollectionViewCell.self)
     
     static func nib() -> UINib{
         return UINib(nibName: identifier, bundle: nil)

@@ -9,8 +9,8 @@ import Foundation
 
 
 
-struct Welcome: Codable {
-    let coord: Coord
+struct WeatherModel: Codable {
+    let coord: Coordinates
     let weather: [Weather]
     let base: String
     let main: Main
@@ -23,7 +23,7 @@ struct Welcome: Codable {
 
 }
 // MARK: - Coord
-struct Coord: Codable {
+struct Coordinates: Codable {
     let lon, lat: Double
 }
 // MARK: - Main
@@ -47,7 +47,7 @@ struct Weather: Codable {
     let id: Int
     let main: WeatherType
     let description: String
-    let icon: String  //Ícone de identificação do clima
+    let icon: String
 }
 
 enum WeatherType: String, Codable {

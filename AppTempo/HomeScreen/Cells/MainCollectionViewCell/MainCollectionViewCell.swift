@@ -2,7 +2,7 @@
 
 import UIKit
 
-class CustomCollectionViewCell: UICollectionViewCell {
+class MainCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var city: UILabel!
     @IBOutlet weak var weatherToday: UILabel! //Clima hoje
@@ -16,7 +16,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var viewBarCollectionViewCe: UICollectionView!
     
-    static let identifier: String = String(describing: CustomCollectionViewCell.self)
+    static let identifier: String = String(describing: MainCollectionViewCell.self)
     
     static func nib () ->UINib {
         return UINib(nibName: identifier, bundle: nil)
@@ -30,19 +30,19 @@ class CustomCollectionViewCell: UICollectionViewCell {
     }
 
     let controller = Controller()
-    func setupCell(with welcome: Welcome) {
+    func setupCell(with weatherModel: WeatherModel) {
        
-        let dayOfWeekText = controller.GetDayOfWeek(welcome: welcome)
-        let weatherImage = Controller.imageDict[ welcome.weather[0].main ] ?? "Sun"
-        let weatherCondition = String(welcome.weather[0].description)
-        let translatedWeather = welcome.weather[0].main.rawValue
+        let dayOfWeekText = controller.GetDayOfWeek(welcome: weatherModel)
+        let weatherImage = Controller.imageDict[ weatherModel.weather[0].main ] ?? "Sun"
+        let weatherCondition = String(weatherModel.weather[0].description)
+        let translatedWeather = weatherModel.weather[0].main.rawValue
         weatherToday.text = translatedWeather
         dayOfWeek.text = String(dayOfWeekText)
-        city.text = String(welcome.name)
+        city.text = String(weatherModel.name)
         weatherToday.text = String(translatedWeather)
-        degreesToday.text = "\(controller.ConversionDegreesToday(welcome: welcome).tempToday) °C"
-        minOfWeek.text =  controller.ConversionDegreesToday(welcome: welcome).minOfDay
-        maxOfWeek.text =  controller.ConversionDegreesToday(welcome: welcome).maxOfDay
+        degreesToday.text = "\(controller.ConversionDegreesToday(welcome: weatherModel).tempToday) °C"
+        minOfWeek.text =  controller.ConversionDegreesToday(welcome: weatherModel).minOfDay
+        maxOfWeek.text =  controller.ConversionDegreesToday(welcome: weatherModel).maxOfDay
         pictureClimateToday.image =  UIImage(named: weatherImage)
 
     }
@@ -70,17 +70,17 @@ class CustomCollectionViewCell: UICollectionViewCell {
             layout.scrollDirection = .horizontal
             layout.estimatedItemSize = .zero
         }
-        viewBarCollectionViewCe.register(ViewBarCollectionViewCell.nib(), forCellWithReuseIdentifier: ViewBarCollectionViewCell.identifier)
+        viewBarCollectionViewCe.register(TempByHourCollectionViewCell.nib(), forCellWithReuseIdentifier: TempByHourCollectionViewCell.identifier)
     }
 }
 
-extension CustomCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
+extension MainCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return infoBar.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = viewBarCollectionViewCe.dequeueReusableCell(withReuseIdentifier: ViewBarCollectionViewCell.identifier, for: indexPath) as? ViewBarCollectionViewCell
+        let cell = viewBarCollectionViewCe.dequeueReusableCell(withReuseIdentifier: TempByHourCollectionViewCell.identifier, for: indexPath) as? TempByHourCollectionViewCell
         cell?.setupBar (with: infoBar[indexPath.row])
         return cell ?? UICollectionViewCell()
     }

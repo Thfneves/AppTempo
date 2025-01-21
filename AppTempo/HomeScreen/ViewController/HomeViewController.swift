@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
             layout.scrollDirection = .horizontal
             layout.estimatedItemSize = .zero
         }
-        collectionView.register(CustomCollectionViewCell.nib(), forCellWithReuseIdentifier: CustomCollectionViewCell.identifier)
+        collectionView.register(MainCollectionViewCell.nib(), forCellWithReuseIdentifier: MainCollectionViewCell.identifier)
     }
     
     func ApiRun() {
@@ -43,7 +43,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    var itensList: [Welcome] = []
+    var itensList: [WeatherModel] = []
     
 }
 
@@ -54,7 +54,7 @@ extension HomeViewController:UICollectionViewDataSource, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.identifier, for: indexPath) as? MainCollectionViewCell
         cell?.setupCell (with: itensList[indexPath.row])
         return cell ?? UICollectionViewCell()
     }

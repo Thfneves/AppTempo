@@ -21,7 +21,7 @@ class Service {
         //https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
     }
     
-    func getExchangeRate(completion: @escaping (Welcome?) -> Void) {
+    func getExchangeRate(completion: @escaping (WeatherModel?) -> Void) {
         
         guard let url = URL(string: urlString) else {
             print("A URL nao está no formato correto")
@@ -35,7 +35,7 @@ class Service {
                     return
                 }
                 do{
-                    let person = try JSONDecoder().decode(Welcome.self, from: dataNotNil )
+                    let person = try JSONDecoder().decode(WeatherModel.self, from: dataNotNil )
                     completion(person)
                 } catch {
                     return
