@@ -28,7 +28,10 @@ class MainCollectionViewCell: UICollectionViewCell {
         ConfigViewBarCollectionView()
         viewBarCollectionViewCe.backgroundColor = UIColor.clear
     }
-
+    var tempTroughDay: TempTroughDay?
+    
+    
+    
     let controller = Controller()
     func setupCell(with weatherModel: WeatherModel) {
        
@@ -40,28 +43,16 @@ class MainCollectionViewCell: UICollectionViewCell {
         dayOfWeek.text = String(dayOfWeekText)
         city.text = String(weatherModel.name)
         weatherToday.text = String(translatedWeather)
-        degreesToday.text = "\(controller.ConversionDegreesToday(welcome: weatherModel).tempToday) °C"
-        minOfWeek.text =  controller.ConversionDegreesToday(welcome: weatherModel).minOfDay
-        maxOfWeek.text =  controller.ConversionDegreesToday(welcome: weatherModel).maxOfDay
+        degreesToday.text = "\(Int(weatherModel.main.temp)) °C"
+        minOfWeek.text =  "\(Int(weatherModel.main.tempMin))°C"
+        maxOfWeek.text =  "\(Int(weatherModel.main.tempMax))°C"
         pictureClimateToday.image =  UIImage(named: weatherImage)
 
+        tempTroughDay = TempTroughDay( minTempToday: weatherModel.main.tempMin, maxTempToday: weatherModel.main.tempMax)
     }
 
-    var infoBar: [InfoBar] = [
-       
-        InfoBar(timerBar: "11:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),
-        InfoBar(timerBar: "12:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),
-        InfoBar(timerBar: "13:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),
-        InfoBar(timerBar: "14:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),
-        InfoBar(timerBar: "15:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),
-        InfoBar(timerBar: "16:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),
-        InfoBar(timerBar: "16:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),
-        InfoBar(timerBar: "17:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),
-        InfoBar(timerBar: "18:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),
-        InfoBar(timerBar: "19:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),
-        InfoBar(timerBar: "20:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),
-        InfoBar(timerBar: "21:00", ChangeOfRainBar: 10, degreesBar: 30, weatherImageBar: .cloudy  ),
-    ]
+    
+    
 
     func ConfigViewBarCollectionView(){
         viewBarCollectionViewCe.delegate = self
@@ -76,13 +67,20 @@ class MainCollectionViewCell: UICollectionViewCell {
 
 extension MainCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return infoBar.count
+        return tempTroughDay?.hours.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = viewBarCollectionViewCe.dequeueReusableCell(withReuseIdentifier: TempByHourCollectionViewCell.identifier, for: indexPath) as? TempByHourCollectionViewCell
-        cell?.setupBar (with: infoBar[indexPath.row])
-        return cell ?? UICollectionViewCell()
+        
+        if let tempTroughDay = self.tempTroughDay{
+            cell?.setupBar (with: tempTroughDay.hours[indexPath.row])
+            return cell ?? UICollectionViewCell()
+        }else{
+            print("error CollectionVireCell tempTrougDay")
+            return UICollectionViewCell()
+        }
+        
     }
 
 }

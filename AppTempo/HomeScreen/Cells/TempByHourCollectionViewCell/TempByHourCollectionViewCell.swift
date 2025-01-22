@@ -24,10 +24,11 @@ class TempByHourCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
 
     }
-    func setupBar (with infoBar: InfoBar){
-        degreesBar.text = String(infoBar.degreesBar)
-        ChangeOfRainBar.text = String(infoBar.ChangeOfRainBar)
-        timerBar.text = String(infoBar.timerBar)
+    func setupBar (with tempByHour: TempByHour){
+        degreesBar.text = String(tempByHour.degreesBar)
+        ChangeOfRainBar.text = "\(tempByHour.chanceOfRainBar)%"
+        timerBar.text = String(tempByHour.timerBar)
+        weatherImage.tintColor = .white
     }
 
 }

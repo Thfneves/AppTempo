@@ -36,6 +36,23 @@ struct Main: Codable {
         case tempMin = "temp_min"     // minima
         case tempMax = "temp_max"    // maxima
     }
+    
+    init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            
+            // Converte os valores de Fahrenheit para Celsius
+            let tempF = try container.decode(Double.self, forKey: .temp)
+            let feelsLikeF = try container.decode(Double.self, forKey: .feelsLike)
+            let tempMinF = try container.decode(Double.self, forKey: .tempMin)
+            let tempMaxF = try container.decode(Double.self, forKey: .tempMax)
+            
+            // Fórmula de conversão de Fahrenheit para Celsius
+            self.temp = (tempF  - 273.15)
+            self.feelsLike = (feelsLikeF  - 273.15)
+            self.tempMin = (tempMinF - 273.15)
+            self.tempMax = (tempMaxF - 273.15)
+        }
+    
 }
 // MARK: - Sys
 struct Sys: Codable {
@@ -87,6 +104,7 @@ enum WeatherType: String, Codable {
         }
     }
 }
+
 
 
 

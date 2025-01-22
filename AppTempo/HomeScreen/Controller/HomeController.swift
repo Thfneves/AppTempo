@@ -7,11 +7,7 @@
 import Foundation
 struct Controller{
       
-    enum Climate: String{
-        case cloudy = "Cloudy"
-        case sun = "Sun"
-        case rain = "Rain"
-    }
+
     
     static  let imageDict: [WeatherType: String] = [
         .clear: "Sun",
@@ -54,10 +50,5 @@ struct Controller{
     }
     
 }
-struct InfoBar{
-    var timerBar: String
-    var ChangeOfRainBar: Int
-    var degreesBar: Int
-    var weatherImageBar: Controller.Climate?
-}
+
 
