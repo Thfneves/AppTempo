@@ -2,12 +2,15 @@
 Em junho de 2023 meus estudos como Desenvolvedor, a cerca de 11 meses foquei na linguagem Swift,  iniciei um aplicativo do tempo para transformar o conhecimento que adquiri em algo mais tangivel.
 Aplicativo feito em sua maioria com WiKit, achei interessante e desafiador trabalhar com diversos conceitos como:
 
-<li>    Orientacao a objetos     </li>
-<li>    API                      </li>
-<li>    Arquitetura de software  </li>
-<li>    Clossures                </li>
-<li>    Collection View          </li>
-<li>    Testes unitarios         </li>
+<li>    Orientacao a objetos                                 </li>
+<li>    API                                                  </li>
+<li>    Arquitetura de software                              </li>
+<li>    Clossures                                            </li>
+<li>    Collection View                                      </li>
+<li>    Testes unitarios                                     </li>
+<li>    Decodificação de JSON e manipulação de dados         </li>
+
+
 
 <h2 align="left"></h2>
 
