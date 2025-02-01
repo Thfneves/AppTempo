@@ -1,6 +1,4 @@
-
-Em junho de 2023 meus estudos como Desenvolvedor, a cerca de 11 meses foquei na linguagem Swift,  iniciei um aplicativo do tempo para transformar o conhecimento que adquiri em algo mais tangivel.
-Aplicativo feito em sua maioria com WiKit, achei interessante e desafiador trabalhar com diversos conceitos como:
+Em junho de 2023, comecei meus estudos como desenvolvedor. Há cerca de 11 meses, foquei na linguagem Swift e iniciei um aplicativo de previsão do tempo para transformar o conhecimento que adquiri em algo mais tangível. O aplicativo foi feito, em sua maioria, com SwiftUI. Achei interessante e desafiador trabalhar com diversos conceitos, como:
 
 <li>    Orientacao a objetos                                 </li>
 <li>    API                                                  </li>
@@ -24,9 +22,12 @@ Aplicativo feito em sua maioria com WiKit, achei interessante e desafiador traba
 <div>
 <h3>Pontos importantes</h3>
 <p>
-  A api que trouxe do openWeather ofereceu limitacoes por ser gratuita, ela nao me informava a variacao de temperatura nas proximas horas e nao me passava os valores de temperatura dos dias subsequentes.
+ A API do OpenWeather apresentou limitações por ser gratuita. Ela não informava a variação de temperatura nas próximas horas nem fornecia os valores de temperatura dos dias subsequentes.
+
 </p>
 <p>
-  Visto isso tive a ideia de criar um simulador das proximas horas do dia, onde garante que pelo menos quando a temperatura cair a chance de chuva aumenta, e tambem o valor do grau celsius varia a depender do horario do dia, quando estiver mais tarde o mais frio e partir de um horario a temperatura sobe.
+ Diante disso, tive a ideia de criar um simulador para as próximas horas do dia, garantindo que, pelo menos, quando a temperatura caísse, a chance de chuva aumentaria. Além disso, fiz com que a temperatura variava de acordo com o horário do dia: à noite, o clima ficaria mais frio, e, a partir de determinado horário, a temperatura voltaria a subir.
 </p>
 </div>
+
+
